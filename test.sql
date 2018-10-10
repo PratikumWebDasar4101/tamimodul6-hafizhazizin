@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Okt 2018 pada 11.15
+-- Waktu pembuatan: 10 Okt 2018 pada 15.34
 -- Versi server: 10.1.34-MariaDB
 -- Versi PHP: 5.6.37
 
@@ -39,7 +39,27 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `user`, `password`) VALUES
-(9, 'hafizh', 'hafizh');
+(11, 'hafizh', 'hafizh');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `posting`
+--
+
+CREATE TABLE `posting` (
+  `id` int(11) NOT NULL,
+  `cerita` text NOT NULL,
+  `gambar` text NOT NULL,
+  `nim` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `posting`
+--
+
+INSERT INTO `posting` (`id`, `cerita`, `gambar`, `nim`) VALUES
+(1, 'asd', 'foto/b024.jpg', '6701170073');
 
 -- --------------------------------------------------------
 
@@ -55,17 +75,15 @@ CREATE TABLE `regis` (
   `kelas` text NOT NULL,
   `hobi` text NOT NULL,
   `alamat` text NOT NULL,
-  `id` int(11) NOT NULL,
-  `cerita` text NOT NULL,
-  `gambar` text NOT NULL
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `regis`
 --
 
-INSERT INTO `regis` (`nim`, `nama`, `jenis_kelamin`, `fakultas`, `kelas`, `hobi`, `alamat`, `id`, `cerita`, `gambar`) VALUES
-('6701170073', 'hafizh', 'Pria', 'FKB', 'S1SI4002', 'Futsal, Ngegame', 'bandung', 9, 'sadsad', 'foto/Image_c6a05fe.jpg');
+INSERT INTO `regis` (`nim`, `nama`, `jenis_kelamin`, `fakultas`, `kelas`, `hobi`, `alamat`, `id`) VALUES
+('6701170073', 'hafizh', 'Pria', 'FIT', 'D3M4101', 'Ngegame, Baca Buku', 'bandung\r\n', 11);
 
 --
 -- Indexes for dumped tables
@@ -75,6 +93,12 @@ INSERT INTO `regis` (`nim`, `nama`, `jenis_kelamin`, `fakultas`, `kelas`, `hobi`
 -- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `posting`
+--
+ALTER TABLE `posting`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -91,7 +115,13 @@ ALTER TABLE `regis`
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `posting`
+--
+ALTER TABLE `posting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
