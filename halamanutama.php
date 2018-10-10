@@ -8,8 +8,12 @@
             <td><a href="posting.php">Posting</a></td>
         </tr>
         <tr>
-            <td><a href="lihatposting.php">Lihat Posting</a></td>
+            <td><a href="myposting.php">My Posting</a></td>
+        </tr>
+        <tr>
+            <td><a href="lihatposting.php">Lihat Semua Posting</a></td>
         </tr>
     </table>
+    <a href="login.php">Logout</a>
 </html>
 </form>

@@ -1,3 +1,11 @@
+<?php
+    require("koneksi.php");
+    session_start();
+    $nim = $_SESSION['nim'];
+    $sql = $pdo  -> prepare("SELECT * FROM regis WHERE nim = '$nim'");
+    $sql -> execute();
+    $data = $sql -> fetch(PDO::FETCH_ASSOC);
+?>
 <html>
 <form action="prosesposting.php" method="POST" enctype="multipart/form-data">
     <table align="center">
@@ -14,6 +22,6 @@
             <td><input type="submit" value="Submit"></td>
             <td><a href="halamanutama.php">Ke Halaman Utama</a></td>
         </tr>
-    </table>
+        </table>
     </form>
 </html>

@@ -16,7 +16,7 @@ if (isset($_POST['cerita'])) {
     }
     header("lihatpostingan.php");
 
-    $query =$pdo ->prepare("UPDATE regis SET cerita = '$cerita', gambar = '$target' WHERE nim = '$nim'");
+    $query =$pdo ->prepare("INSERT INTO posting(cerita, gambar, nim) VALUES ('$cerita','$target','$nim')");
     $query -> execute();
         if($query)
         header("location:lihatposting.php");
