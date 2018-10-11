@@ -1,6 +1,7 @@
 <?php
     require("koneksi.php");
     session_start();
+    include("header.php");
     $nim = $_SESSION['nim'];
     $sql = $pdo  -> prepare("SELECT * FROM regis WHERE nim = '$nim'");
     $sql -> execute();
@@ -21,27 +22,27 @@
         <tr>
             <td>Jenis Kelamin</td>
             <td>:</td>
-            <td>Pria<input type="radio" name="jk" value="Pria">
-                Wanita<input type="radio" name="jk" value="Wanita" value="<?php echo $data['jenis_kelamin'] ?>"></td>
+            <td>Pria<input type="radio" name="jk" <?php if($data['jenis_kelamin'] == "Pria") echo "checked"?> value="Pria">
+                Wanita<input type="radio" name="jk"<?php if($data['jenis_kelamin'] == "Wanita") echo "checked"?> value="Wanita" value="<?php echo $data['jenis_kelamin'] ?>"></td>
         </tr>
         <tr>
             <td>Fakultas</td>
             <td>:</td>
             <td> <select name="fakultas" value="<?php echo $data['fakultas'] ?>">
-                    <option value="FIT"name="FIT">FIT</option>
-                    <option value="FKB"name="FKB">FKB</option>
-                    <option value="FIK"name="FIK">FIK</option>
-                    <option value="FTE"name="FTE">FTE</option>
+                    <option <?php if($data['fakultas'] =="FIT")echo"selected"?> value="FIT">FIT</option>
+                    <option <?php if($data['fakultas'] =="FKB")echo"selected"?> value="FKB">FKB</option>
+                    <option <?php if($data['fakultas'] =="FIK")echo"selected"?> value="FIK">FIK</option>
+                    <option <?php if($data['fakultas'] =="FTE")echo"selected"?> value="FTE">FTE</option>
                 </select></td>
         </tr>
         <tr>
             <td>Kelas</td>
             <td>:</td>
             <td><select name="kelas" value="<?php echo $data['kelas'] ?>">
-                    <option value="D3M4101"name="D3M4101">D3MI-41-01</option>
-                    <option value="S1SI4002"name="S1SI4002">S1SI-40-02</option>
-                    <option value="D3TK4103"name="D3TK4103">D3TK-41-03</option>
-                    <option value="D3MI4001"name="D3MI4001">D3MI-40-01</option>
+                    <option <?php if($data['kelas'] == "D3MI-41-01" ) echo "selected" ?>value="D3M4101">D3MI-41-01</option>
+                    <option <?php if($data['kelas'] == "S1SI-40-02" ) echo "selected" ?>value="S1SI4002">S1SI-40-02</option>
+                    <option <?php if($data['kelas'] == "D3TK-41-03" ) echo "selected" ?>value="D3TK4103">D3TK-41-03</option>
+                    <option <?php if($data['kelas'] == "D3MI-40-01" ) echo "selected" ?>value="D3MI4001">D3MI-40-01</option>
               </select></td>
         </tr>
         <tr>
@@ -75,6 +76,7 @@
         $hobby = $_POST['hobby'];
         $alamat = $_POST['alamat'];
         $list_hobi =implode(", " ,$hobby);
+        
 
         $sql= $pdo -> prepare("UPDATE regis SET nama = '$nama', jenis_kelamin='$jk',fakultas='$fakultas', kelas='$kelas', hobi='$list_hobi', alamat='$alamat' WHERE nim ='$nim'");
         $sql -> execute();

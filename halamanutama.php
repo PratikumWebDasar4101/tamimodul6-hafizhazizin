@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <form action="" method="Post">
 <html>
     <table align="center" >
@@ -14,6 +17,6 @@
             <td><a href="lihatposting.php">Lihat Semua Posting</a></td>
         </tr>
     </table>
-    <a href="login.php">Logout</a>
+    <a href="login.php">LOGOUT</a>
 </html>
 </form>

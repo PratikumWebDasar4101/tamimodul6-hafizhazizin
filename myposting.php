@@ -1,6 +1,7 @@
 <?php
     require("koneksi.php");
     session_start();
+    include("header.php");
     $nim = $_SESSION['nim'];
 ?>
 <html>

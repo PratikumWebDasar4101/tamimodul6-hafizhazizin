@@ -1,3 +1,5 @@
+<?php
+?>
 <html>
     <form action="proseslogin.php" method="POST">
         <table align="center">

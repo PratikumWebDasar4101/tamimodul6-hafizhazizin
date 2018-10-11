@@ -1,6 +1,7 @@
 <?php
     require("koneksi.php");
     session_start();
+    include("header.php");
     $nim = $_SESSION['nim'];
     $sql = $pdo  -> prepare("SELECT * FROM regis WHERE nim = '$nim'");
     $sql -> execute();
